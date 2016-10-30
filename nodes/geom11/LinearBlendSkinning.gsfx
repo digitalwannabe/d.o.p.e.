@@ -1,0 +1,81 @@
+//@author: digitalwannabe
+//@category: DOPE
+//@help: linear blend skinning shader
+//@tags: deform, character, bones, dope
+//@credits: vux
+
+SamplerState linearSampler: IMMUTABLE
+{
+    Filter = MIN_MAG_MIP_LINEAR;
+    AddressU = Wrap;
+    AddressV = Wrap;
+};
+
+
+
+//int Vertices <string uiname="Vertices";>;
+int Bones <string uiname="Handles";> =1;
+bool is3D <string uiname="2D/3D";>;
+
+StructuredBuffer<float4> LBS <string uiname="Blend Weights Matrix";>;
+StructuredBuffer<Matrix> Tmatrix <string uiname="Handle Transform";>;
+
+struct vs2gs
+{
+	float3 PosO: POSITION;
+	float3 Normal: NORMAL;
+	float2 UV: TEXCOORD0;
+};
+
+vs2gs VS(
+	float3 PosO: POSITION,
+	float3 Normal: NORMAL,
+	float2 UV: TEXCOORD0,
+	uint InstanceID: SV_VertexID,
+	uint GeometryID: SV_InstanceID)
+{
+	vs2gs Out;
+	
+	float3 posO;
+
+
+	
+	for (int i=0;i<Bones;i++){
+		
+			float4x3 matrixT = float4x3(Tmatrix[i][0][0],Tmatrix[i][0][1],Tmatrix[i][0][2],
+												Tmatrix[i][1][0],Tmatrix[i][1][1],Tmatrix[i][1][2],
+												Tmatrix[i][2][0],Tmatrix[i][2][1],Tmatrix[i][2][2],
+												Tmatrix[i][3][0],Tmatrix[i][3][1],Tmatrix[i][3][2]);
+	
+			if (!is3D){
+					matrixT[2][2]=0.0f;
+					matrixT[2][0]=matrixT[3][0];
+					matrixT[2][1]=matrixT[3][1];
+				}
+		
+		posO.x+=LBS[InstanceID*Bones+i].x*matrixT[0][0]+LBS[InstanceID*Bones+i].y*matrixT[1][0]+LBS[InstanceID*Bones+i].z*matrixT[2][0]+LBS[InstanceID*Bones+i].w*matrixT[3][0];
+		posO.y+=LBS[InstanceID*Bones+i].x*matrixT[0][1]+LBS[InstanceID*Bones+i].y*matrixT[1][1]+LBS[InstanceID*Bones+i].z*matrixT[2][1]+LBS[InstanceID*Bones+i].w*matrixT[3][1];
+		posO.z+=LBS[InstanceID*Bones+i].x*matrixT[0][2]+LBS[InstanceID*Bones+i].y*matrixT[1][2]+LBS[InstanceID*Bones+i].z*matrixT[2][2]+LBS[InstanceID*Bones+i].w*matrixT[3][2];
+
+	}
+
+	Out.PosO = posO;
+	Out.Normal = Normal;
+	Out.UV = UV;
+	
+    return Out;
+}
+
+
+GeometryShader StreamOutGS = ConstructGSWithSO( CompileShader( vs_4_0, VS() ), "POSITION.xyz;NORMAL.xyz;TEXCOORD.xy", NULL,NULL,NULL,-1 );
+//if the above does not work, try this line instead
+//GeometryShader StreamOutGS = ConstructGSWithSO( CompileShader( vs_4_0, VS() ), "POSITION.xyz;NORMAL.xyz;TEXCOORD.xy" );
+
+technique10 PassMesh
+{
+    pass PP2
+    {
+        SetVertexShader( CompileShader( vs_4_0, VS() ) );
+        SetGeometryShader( StreamOutGS );
+    }  
+}

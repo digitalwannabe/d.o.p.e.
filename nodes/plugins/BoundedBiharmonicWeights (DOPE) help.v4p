@@ -1,0 +1,885 @@
+<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv50alpha34.106.dtd" >
+   <PATCH nodename="C:\Users\digital.wannabe\Desktop\vvvv_50alpha34.106_x86\packs\dope\nodes\plugins\BoundedBiharmonicWeights (DOPE) help.v4p" scrollx="7" scrolly="5729">
+   <BOUNDS type="Window" left="10374" top="2597" width="12978" height="10997">
+   </BOUNDS>
+   <NODE nodename="IOBox (String)" componentmode="InABox" id="3">
+   <BOUNDS type="Node" left="210" top="210" width="4760" height="420">
+   </BOUNDS>
+   <BOUNDS type="Box" left="210" top="210" width="4760" height="420">
+   </BOUNDS>
+   <PIN pinname="Input String" slicecount="1" visible="0" values="|BoundedBiharmonicWeights (DOPE)|">
+   </PIN>
+   <PIN pinname="Output String" slicecount="1" visible="0" values="||">
+   </PIN>
+   <PIN pinname="Size" slicecount="1" visible="1" values="14">
+   </PIN>
+   </NODE>
+   <NODE nodename="IOBox (String)" componentmode="InABox" id="2">
+   <BOUNDS type="Node" left="210" top="560" width="4760" height="560">
+   </BOUNDS>
+   <BOUNDS type="Box" left="210" top="560" width="4760" height="560">
+   </BOUNDS>
+   <PIN pinname="Input String" slicecount="1" visible="0" values="|Automatic Weight Computation for Meshes|">
+   </PIN>
+   <PIN pinname="Output String" slicecount="1" visible="0" values="||">
+   </PIN>
+   </NODE>
+   <NODE nodename="IOBox (String)" componentmode="InABox" id="5">
+   <BOUNDS type="Node" left="6769" top="9191" width="6706" height="210">
+   </BOUNDS>
+   <BOUNDS type="Box" left="6769" top="9191" width="5285" height="1267">
+   </BOUNDS>
+   <PIN pinname="Input String" visible="0" slicecount="1" values="|The Blend Weight Matrix&apos;s size is &apos;(dimension+1)*number of handles&apos; columns and &apos;number of vertices&apos; rows.&cr;&lf;Dimension is either 2 or 3. As cages are special point handles, only point handles are taken into account for &apos;number of handles&apos;.|">
+   </PIN>
+   <PIN pinname="Output String" visible="0">
+   </PIN>
+   <PIN pinname="Show Grid" slicecount="1" values="0">
+   </PIN>
+   <PIN pinname="String Type" slicecount="1" values="MultiLine">
+   </PIN>
+   <PIN pinname="Size" slicecount="1" values="8">
+   </PIN>
+   </NODE>
+   <NODE nodename="IOBox (String)" componentmode="InABox" id="6">
+   <BOUNDS type="Node" left="6769" top="763" width="7189" height="210">
+   </BOUNDS>
+   <BOUNDS type="Box" left="6769" top="763" width="5411" height="3255">
+   </BOUNDS>
+   <PIN pinname="Input String" visible="0" slicecount="1" values="|- In 2D triangulated meshes are required as input; in 3D volumetric information, ie tetrahedral meshes, is required. These can either be loaded from disk or produced with Triangle/TetGen. TetGen also can produce volumetric information for existing 3D surface meshes.&cr;&lf;&cr;&lf;- In 2D Mode mesh and control vertices DO need a 3rd coordinate, simply set it to 0.&cr;&lf;&cr;&lf;- The input mesh needs to have vertices exactly at  control handle locations. control handles can be points, bone ends or cage corners. For bones and cages, the mesh should also have a sufficient amount of mesh vertices along bone/cage edges. The more vertices the more stable the result. Again use Triangle/Tetgen to add control handles as well as vertices along bone/cage edges to your mesh; alternatively keep this in mind when producing your mesh elsewhere.&cr;&lf;&cr;&lf;- The input mesh should NOT have duplicate vertices|">
+   </PIN>
+   <PIN pinname="Output String" visible="0">
+   </PIN>
+   <PIN pinname="Show Grid" slicecount="1" values="0">
+   </PIN>
+   <PIN pinname="String Type" slicecount="1" values="MultiLine">
+   </PIN>
+   <PIN pinname="Size" slicecount="1" values="8">
+   </PIN>
+   </NODE>
+   <PACK Name="addonpack" Version="34.101.0">
+   </PACK>
+   <NODE systemname="UniformScale (Transform)" nodename="UniformScale (Transform)" componentmode="Hidden" id="53" hiddenwhenlocked="1">
+   <BOUNDS type="Node" left="416" top="2945" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Transform Out" visible="1">
+   </PIN>
+   <PIN pinname="XYZ" slicecount="1" values="0.004">
+   </PIN>
+   <PIN pinname="Transform In" visible="1">
+   </PIN>
+   </NODE>
+   <NODE systemname="Transform (Transform 2d)" nodename="Transform (Transform 2d)" componentmode="Hidden" id="52" hiddenwhenlocked="1">
+   <BOUNDS type="Node" left="416" top="2567" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Transform In" visible="1" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Transform Out" visible="1">
+   </PIN>
+   <PIN pinname="TranslateX" slicecount="1" values="-0.75">
+   </PIN>
+   <PIN pinname="TranslateY" slicecount="1" values="-0.75">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="52" srcpinname="Transform Out" dstnodeid="53" dstpinname="Transform In">
+   </LINK>
+   <NODE systemname="ApplyTransform (Transform Vector)" nodename="ApplyTransform (Transform Vector)" componentmode="Hidden" id="51" hiddenwhenlocked="1">
+   <BOUNDS type="Node" left="411" top="3413" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="XYZ UnTransformed" visible="1">
+   </PIN>
+   <PIN pinname="Transform" visible="1">
+   </PIN>
+   <PIN pinname="XYZ Transformed" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="53" srcpinname="Transform Out" dstnodeid="51" dstpinname="Transform">
+   </LINK>
+   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="50" systemname="IOBox (Value Advanced)">
+   <BOUNDS type="Box" left="4278" top="5752" width="480" height="480">
+   </BOUNDS>
+   <BOUNDS type="Node" left="4278" top="5752" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Y Input Value" slicecount="1" visible="1" values="0">
+   </PIN>
+   <PIN pinname="Units" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Precision" slicecount="1" values="4">
+   </PIN>
+   <PIN pinname="Value Type" slicecount="1" values="Boolean">
+   </PIN>
+   <PIN pinname="Behavior" slicecount="1" values="Bang">
+   </PIN>
+   <PIN pinname="Y Output Value" visible="1">
+   </PIN>
+   <PIN pinname="X Input Value" slicecount="1" values="0">
+   </PIN>
+   </NODE>
+   <NODE systemname="I (Spreads)" nodename="I (Spreads)" componentmode="Hidden" id="49">
+   <BOUNDS type="Node" left="2948" top="6162" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname=".. To [" visible="1">
+   </PIN>
+   <PIN pinname="Output" visible="1">
+   </PIN>
+   </NODE>
+   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="48" systemname="IOBox (Value Advanced)">
+   <BOUNDS type="Box" left="3137" top="5834" width="280" height="245">
+   </BOUNDS>
+   <BOUNDS type="Node" left="3137" top="5834" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Y Input Value" slicecount="1" visible="1" values="5">
+   </PIN>
+   <PIN pinname="Units" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Precision" slicecount="1" values="4">
+   </PIN>
+   <PIN pinname="Value Type" slicecount="1" values="Integer">
+   </PIN>
+   <PIN pinname="Y Output Value" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="48" srcpinname="Y Output Value" dstnodeid="49" dstpinname=".. To [">
+   </LINK>
+   <NODE systemname="GetSlice (Spreads)" nodename="GetSlice (Spreads)" componentmode="Hidden" id="47" hiddenwhenlocked="1">
+   <BOUNDS type="Node" left="2679" top="5120" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Bin Size" slicecount="1" visible="1" values="3">
+   </PIN>
+   <PIN pinname="Index" visible="1">
+   </PIN>
+   <PIN pinname="Input" visible="1">
+   </PIN>
+   <PIN pinname="Output" visible="1">
+   </PIN>
+   </NODE>
+   <NODE systemname="IOBox (Value Advanced)" nodename="IOBox (Value Advanced)" componentmode="InABox" id="46" hiddenwhenlocked="1">
+   <BOUNDS type="Node" left="3298" top="3728" width="100" height="100">
+   </BOUNDS>
+   <BOUNDS type="Box" left="3298" top="3728" width="581" height="1323">
+   </BOUNDS>
+   <PIN pinname="Rows" slicecount="1" values="5">
+   </PIN>
+   <PIN pinname="SliceCount Mode" slicecount="1" values="ColsRowsPages">
+   </PIN>
+   <PIN pinname="Y Output Value" visible="1">
+   </PIN>
+   <PIN pinname="Y Input Value" slicecount="5" values="12,15,317,119,3">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="46" srcpinname="Y Output Value" dstnodeid="47" dstpinname="Index">
+   </LINK>
+   <LINK srcnodeid="51" srcpinname="XYZ Transformed" dstnodeid="47" dstpinname="Input">
+   </LINK>
+   <NODE systemname="Transform (Transform 3d)" nodename="Transform (Transform 3d)" componentmode="Hidden" id="36" hiddenwhenlocked="1">
+   <BOUNDS type="Node" left="2643" top="10170" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Transform Out" visible="1">
+   </PIN>
+   <PIN pinname="TranslateX" visible="1" slicecount="5" values="0,0,0,0,0">
+   </PIN>
+   <PIN pinname="ScaleY" slicecount="1" visible="1" values="1">
+   </PIN>
+   <PIN pinname="TranslateY" visible="1">
+   </PIN>
+   <PIN pinname="TranslateZ" visible="1" slicecount="1" values="0">
+   </PIN>
+   <PIN pinname="Pitch" slicecount="5" visible="1" values="0,0,0,0,0">
+   </PIN>
+   <PIN pinname="Yaw" slicecount="5" visible="1" values="0,0,0,0,0">
+   </PIN>
+   <PIN pinname="Roll" slicecount="5" visible="1" values="-0.0433317965919773,0,0.000840777446085241,0.00364845230135607,-0.0148914684780449">
+   </PIN>
+   <PIN pinname="ScaleX" slicecount="1" visible="1" values="1">
+   </PIN>
+   <PIN pinname="ScaleZ" slicecount="1" values="1">
+   </PIN>
+   </NODE>
+   <NODE systemname="IOBox (Value Advanced)" nodename="IOBox (Value Advanced)" componentmode="InABox" id="34" hiddenwhenlocked="1">
+   <BOUNDS type="Node" left="3241" top="7931" width="100" height="100">
+   </BOUNDS>
+   <BOUNDS type="Box" left="3241" top="7931" width="385" height="714">
+   </BOUNDS>
+   <PIN pinname="Rows" slicecount="1" values="5">
+   </PIN>
+   <PIN pinname="SliceCount Mode" slicecount="1" values="ColsRowsPages">
+   </PIN>
+   <PIN pinname="Y Output Value" visible="1">
+   </PIN>
+   <PIN pinname="Y Input Value" slicecount="5" values="0,0,0,0,0">
+   </PIN>
+   <PIN pinname="X Input Value" slicecount="5" values="0,0,0,0,0">
+   </PIN>
+   </NODE>
+   <NODE systemname="BoundedBiharmonicWeights (DOPE)" filename="%VVVV%\packs\dope\nodes\plugins\DOPEBoundedBiharmonicWeights.dll" nodename="BoundedBiharmonicWeights (DOPE)" componentmode="Hidden" id="33">
+   <BOUNDS type="Node" left="1981" top="6566" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Input XYZ" visible="1">
+   </PIN>
+   <PIN pinname="Triangle/Tetrahedron Indices" visible="1">
+   </PIN>
+   <PIN pinname="2D/3D" visible="1" slicecount="1" values="0">
+   </PIN>
+   <PIN pinname="Controls XYZ" visible="1">
+   </PIN>
+   <PIN pinname="Point Handle Indices" visible="1">
+   </PIN>
+   <PIN pinname="Bind" visible="1">
+   </PIN>
+   <PIN pinname="Blend Weight Matrix" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="51" srcpinname="XYZ Transformed" dstnodeid="33" dstpinname="Input XYZ">
+   </LINK>
+   <LINK srcnodeid="47" srcpinname="Output" dstnodeid="33" dstpinname="Controls XYZ">
+   </LINK>
+   <LINK srcnodeid="49" srcpinname="Output" dstnodeid="33" dstpinname="Point Handle Indices">
+   </LINK>
+   <NODE systemname="OnOpen (VVVV)" nodename="OnOpen (VVVV)" componentmode="Hidden" id="28">
+   <BOUNDS type="Node" left="4249" top="6356" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Simulate" visible="1">
+   </PIN>
+   <PIN pinname="Bang" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="50" srcpinname="Y Output Value" dstnodeid="28" dstpinname="Simulate">
+   </LINK>
+   <LINK srcnodeid="28" srcpinname="Bang" dstnodeid="33" dstpinname="Bind">
+   </LINK>
+   <NODE systemname="Transform (Transform 3d Vector)" nodename="Transform (Transform 3d Vector)" componentmode="Hidden" id="27" hiddenwhenlocked="1">
+   <BOUNDS type="Node" left="3668" top="15442" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Translate XYZ" visible="1">
+   </PIN>
+   <PIN pinname="Transform Out" visible="1">
+   </PIN>
+   <PIN pinname="Scale XYZ" slicecount="3" values="0.04,0.04,0.04">
+   </PIN>
+   </NODE>
+   <NODE systemname="ApplyTransform (Transform Vector)" nodename="ApplyTransform (Transform Vector)" componentmode="Hidden" id="25" hiddenwhenlocked="1">
+   <BOUNDS type="Node" left="3857" top="15092" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="XYZ UnTransformed" visible="1">
+   </PIN>
+   <PIN pinname="Transform" visible="1">
+   </PIN>
+   <PIN pinname="XYZ Transformed" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="47" srcpinname="Output" dstnodeid="25" dstpinname="XYZ UnTransformed" hiddenwhenlocked="1">
+   </LINK>
+   <LINK srcnodeid="25" srcpinname="XYZ Transformed" dstnodeid="27" dstpinname="Translate XYZ">
+   </LINK>
+   <LINK srcnodeid="36" srcpinname="Transform Out" dstnodeid="25" dstpinname="Transform" hiddenwhenlocked="1">
+   </LINK>
+   <NODE systemname="SetSlice (Spreads)" nodename="SetSlice (Spreads)" componentmode="Hidden" id="23" hiddenwhenlocked="1">
+   <BOUNDS type="Node" left="3206" top="9072" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Spread" visible="1">
+   </PIN>
+   <PIN pinname="Input" slicecount="1" values="0.18">
+   </PIN>
+   <PIN pinname="Output" visible="1">
+   </PIN>
+   <PIN pinname="Index" visible="1">
+   </PIN>
+   </NODE>
+   <NODE systemname="Damper (Animation)" nodename="Damper (Animation)" componentmode="Hidden" id="22" hiddenwhenlocked="1">
+   <BOUNDS type="Node" left="3220" top="9450" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Go To Position" visible="1">
+   </PIN>
+   <PIN pinname="Position Out" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="23" srcpinname="Output" dstnodeid="22" dstpinname="Go To Position">
+   </LINK>
+   <NODE systemname="LFO (Animation)" nodename="LFO (Animation)" componentmode="Hidden" id="21" hiddenwhenlocked="1">
+   <BOUNDS type="Node" left="3136" top="8715" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Cycles" visible="1">
+   </PIN>
+   <PIN pinname="Period" slicecount="1" values="0.15">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="21" srcpinname="Cycles" dstnodeid="23" dstpinname="Index">
+   </LINK>
+   <LINK srcnodeid="34" srcpinname="Y Output Value" dstnodeid="23" dstpinname="Spread">
+   </LINK>
+   <NODE systemname="Add (Value)" nodename="Add (Value)" componentmode="Hidden" id="20" hiddenwhenlocked="1">
+   <BOUNDS type="Node" left="3234" top="9807" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Input 2" slicecount="1" values="1">
+   </PIN>
+   <PIN pinname="Input 1" visible="1">
+   </PIN>
+   <PIN pinname="Output" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="22" srcpinname="Position Out" dstnodeid="20" dstpinname="Input 1">
+   </LINK>
+   <LINK srcnodeid="20" srcpinname="Output" dstnodeid="36" dstpinname="ScaleX">
+   </LINK>
+   <LINK srcnodeid="20" srcpinname="Output" dstnodeid="36" dstpinname="ScaleY">
+   </LINK>
+   <NODE systemname="Multiply (Value)" nodename="Multiply (Value)" componentmode="Hidden" id="19" hiddenwhenlocked="1">
+   <BOUNDS type="Node" left="3997" top="9786" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Input 2" visible="1" slicecount="5" values="-0.54,0,0.54,0.54,-0.54">
+   </PIN>
+   <PIN pinname="Input 1" visible="1">
+   </PIN>
+   <PIN pinname="Output" visible="1">
+   </PIN>
+   </NODE>
+   <NODE systemname="IOBox (Value Advanced)" nodename="IOBox (Value Advanced)" componentmode="InABox" id="18" hiddenwhenlocked="1">
+   <BOUNDS type="Node" left="4767" top="8862" width="100" height="100">
+   </BOUNDS>
+   <BOUNDS type="Box" left="4767" top="8862" width="483" height="847">
+   </BOUNDS>
+   <PIN pinname="Rows" slicecount="1" values="5">
+   </PIN>
+   <PIN pinname="SliceCount Mode" slicecount="1" values="ColsRowsPages">
+   </PIN>
+   <PIN pinname="Y Output Value" visible="1">
+   </PIN>
+   <PIN pinname="Y Input Value" slicecount="5" visible="1" values="-0.5,0,0.5,0.5,-0.5">
+   </PIN>
+   <PIN pinname="X Input Value" slicecount="5" values="0,0,0,0,0">
+   </PIN>
+   </NODE>
+   <NODE systemname="Damper (Animation)" nodename="Damper (Animation)" componentmode="Hidden" id="17" hiddenwhenlocked="1">
+   <BOUNDS type="Node" left="3955" top="9282" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Go To Position" visible="1">
+   </PIN>
+   <PIN pinname="Position Out" visible="1">
+   </PIN>
+   <PIN pinname="FilterTime" slicecount="1" values="3">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="23" srcpinname="Output" dstnodeid="17" dstpinname="Go To Position">
+   </LINK>
+   <LINK srcnodeid="19" srcpinname="Output" dstnodeid="36" dstpinname="Roll">
+   </LINK>
+   <NODE systemname="Multiply (Value)" nodename="Multiply (Value)" componentmode="Hidden" id="16" hiddenwhenlocked="1">
+   <BOUNDS type="Node" left="2856" top="9450" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Input 1" visible="1">
+   </PIN>
+   <PIN pinname="Output" visible="1">
+   </PIN>
+   <PIN pinname="Input 2" slicecount="1" values="2.22">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="17" srcpinname="Position Out" dstnodeid="16" dstpinname="Input 1">
+   </LINK>
+   <NODE systemname="Subtract (Value)" nodename="Subtract (Value)" componentmode="Hidden" id="15" hiddenwhenlocked="1">
+   <BOUNDS type="Node" left="2856" top="9751" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Input 1" visible="1">
+   </PIN>
+   <PIN pinname="Output" visible="1">
+   </PIN>
+   <PIN pinname="Input 2" slicecount="1" values="0.13">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="16" srcpinname="Output" dstnodeid="15" dstpinname="Input 1">
+   </LINK>
+   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="10" hiddenwhenlocked="1">
+   <BOUNDS type="Box" left="2989" top="4844" width="280" height="231">
+   </BOUNDS>
+   <BOUNDS type="Node" left="2989" top="4844" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Y Input Value" slicecount="1" visible="1" values="3">
+   </PIN>
+   <PIN pinname="Units" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Precision" slicecount="1" values="4">
+   </PIN>
+   <PIN pinname="Value Type" slicecount="1" values="Integer">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="10" srcpinname="Y Output Value" dstnodeid="47" dstpinname="Bin Size">
+   </LINK>
+   <NODE nodename="IOBox (String)" componentmode="InABox" id="9">
+   <BOUNDS type="Node" left="3437" top="5866" width="609" height="210">
+   </BOUNDS>
+   <BOUNDS type="Box" left="3437" top="5866" width="609" height="210">
+   </BOUNDS>
+   <PIN pinname="Input String" visible="0" slicecount="1" values="handles">
+   </PIN>
+   <PIN pinname="Output String" visible="0">
+   </PIN>
+   <PIN pinname="Show Grid" slicecount="1" values="0">
+   </PIN>
+   <PIN pinname="String Type" slicecount="1" values="MultiLine">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="18" srcpinname="Y Output Value" dstnodeid="19" dstpinname="Input 2">
+   </LINK>
+   <NODE systemname="SceneFile (DX11.Geometry Assimp)" filename="%VVVV%\packs\dx11\nodes\plugins\VVVV.DX11.Nodes.Assimp.dll" nodename="SceneFile (DX11.Geometry Assimp)" componentmode="Hidden" id="8" hiddenwhenlocked="1">
+   <BOUNDS type="Node" left="1449" top="1764" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Filename" slicecount="1" values="..\..\assets\models\woody.obj">
+   </PIN>
+   <PIN pinname="Scene" visible="1">
+   </PIN>
+   </NODE>
+   <NODE systemname="Mesh (Geometry Split Assimp)" filename="%VVVV%\packs\dx11\nodes\plugins\VVVV.DX11.Nodes.Assimp.dll" nodename="Mesh (Geometry Split Assimp)" componentmode="Hidden" id="7" hiddenwhenlocked="1">
+   <BOUNDS type="Node" left="1477" top="2177" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Scene" visible="1">
+   </PIN>
+   <PIN pinname="PositionXYZ" visible="1">
+   </PIN>
+   <PIN pinname="Indices" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="8" srcpinname="Scene" dstnodeid="7" dstpinname="Scene">
+   </LINK>
+   <LINK srcnodeid="7" srcpinname="PositionXYZ" dstnodeid="51" dstpinname="XYZ UnTransformed">
+   </LINK>
+   <LINK srcnodeid="15" srcpinname="Output" dstnodeid="36" dstpinname="TranslateY">
+   </LINK>
+   <LINK srcnodeid="17" srcpinname="Position Out" dstnodeid="19" dstpinname="Input 1">
+   </LINK>
+   <NODE systemname="MatrixMultiplication (Value)" filename="%VVVV%\packs\dope\nodes\plugins\DOPEBoundedBiharmonicWeights.dll" nodename="MatrixMultiplication (Value)" componentmode="Hidden" id="54">
+   <BOUNDS type="Node" left="1967" top="12922" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Values B" visible="1">
+   </PIN>
+   <PIN pinname="Values C" visible="1" slicecount="45" values="0.998640894889832,-0.0831354185938835,0,1.0093480348587,0,0,1.02988862991333,0.168804988265038,0,1.09272563457489,0.146052360534668,0,1.02005636692047,-0.070395790040493,0,0.0831354185938835,0.998640894889832,0,0,1.0093480348587,0,-0.168804988265038,1.02988862991333,0,-0.146052360534668,1.09272563457489,0,0.070395790040493,1.02005636692047,0,0,0,1,0,0,1,0,0,1,0,0,1,0,0,1">
+   </PIN>
+   <PIN pinname="CommonSize" visible="1" slicecount="1" values="15">
+   </PIN>
+   <PIN pinname="Values A" visible="1">
+   </PIN>
+   </NODE>
+   <NODE systemname="GetMatrix (Transform)" nodename="GetMatrix (Transform)" componentmode="Hidden" id="55" hiddenwhenlocked="1">
+   <BOUNDS type="Node" left="2646" top="10521" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Transform" visible="1">
+   </PIN>
+   <PIN pinname="Matrix Out" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="36" srcpinname="Transform Out" dstnodeid="55" dstpinname="Transform">
+   </LINK>
+   <NODE systemname="Multiply (Value)" nodename="Multiply (Value)" componentmode="Hidden" id="56">
+   <BOUNDS type="Node" left="3591" top="12719" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Input 1" visible="1">
+   </PIN>
+   <PIN pinname="Input 2" slicecount="1" visible="1" values="3">
+   </PIN>
+   <PIN pinname="Output" visible="1">
+   </PIN>
+   <PIN pinname="Input Count" slicecount="1" values="2">
+   </PIN>
+   <PIN pinname="Input 3" slicecount="1" values="3">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="48" srcpinname="Y Output Value" dstnodeid="56" dstpinname="Input 1">
+   </LINK>
+   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="57">
+   <BOUNDS type="Box" left="3829" top="12341" width="308" height="238">
+   </BOUNDS>
+   <BOUNDS type="Node" left="3829" top="12341" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Y Input Value" slicecount="1" visible="1" values="3">
+   </PIN>
+   <PIN pinname="Units" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Precision" slicecount="1" values="4">
+   </PIN>
+   <PIN pinname="Value Type" slicecount="1" values="Integer">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="57" srcpinname="Y Output Value" dstnodeid="56" dstpinname="Input 2">
+   </LINK>
+   <NODE systemname="Vector (4d Split)" nodename="Vector (4d Split)" componentmode="Hidden" id="59" hiddenwhenlocked="1">
+   <BOUNDS type="Node" left="2653" top="10843" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="X" visible="1">
+   </PIN>
+   <PIN pinname="Y" visible="1">
+   </PIN>
+   <PIN pinname="Z" visible="1">
+   </PIN>
+   <PIN pinname="XYZW" visible="1">
+   </PIN>
+   </NODE>
+   <NODE systemname="Vector (3d Join)" nodename="Vector (3d Join)" componentmode="Hidden" id="60" hiddenwhenlocked="1">
+   <BOUNDS type="Node" left="2653" top="11158" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="X" visible="1">
+   </PIN>
+   <PIN pinname="Y" visible="1">
+   </PIN>
+   <PIN pinname="Z" visible="1">
+   </PIN>
+   <PIN pinname="XYZ" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="59" srcpinname="X" dstnodeid="60" dstpinname="X">
+   </LINK>
+   <LINK srcnodeid="59" srcpinname="Y" dstnodeid="60" dstpinname="Y">
+   </LINK>
+   <LINK srcnodeid="59" srcpinname="Z" dstnodeid="60" dstpinname="Z">
+   </LINK>
+   <LINK srcnodeid="55" srcpinname="Matrix Out" dstnodeid="59" dstpinname="XYZW">
+   </LINK>
+   <LINK srcnodeid="33" srcpinname="Blend Weight Matrix" dstnodeid="54" dstpinname="Values B" hiddenwhenlocked="1">
+   </LINK>
+   <NODE systemname="Unzip (Value Bin)" filename="%VVVV%\lib\nodes\plugins\VVVV.Nodes.dll" nodename="Unzip (Value Bin)" componentmode="Hidden" id="67" hiddenwhenlocked="1">
+   <BOUNDS type="Node" left="2646" top="11480" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Input Bin Size" slicecount="1" values="3">
+   </PIN>
+   <PIN pinname="Input" visible="1">
+   </PIN>
+   <PIN pinname="Output 1" visible="1">
+   </PIN>
+   <PIN pinname="Output Count" slicecount="1" values="4">
+   </PIN>
+   <PIN pinname="Output 2" visible="1">
+   </PIN>
+   <PIN pinname="Output 3" visible="1">
+   </PIN>
+   <PIN pinname="Output 4" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="60" srcpinname="XYZ" dstnodeid="67" dstpinname="Input">
+   </LINK>
+   <NODE systemname="Renderer (EX9)" nodename="Renderer (EX9)" componentmode="InAWindow" id="72" hiddenwhenlocked="1">
+   <BOUNDS type="Node" left="1274" top="15974" width="100" height="100">
+   </BOUNDS>
+   <BOUNDS type="Box" left="1274" top="15974" width="2093" height="1568">
+   </BOUNDS>
+   <BOUNDS type="Window" left="539" top="4900" width="8358" height="6412">
+   </BOUNDS>
+   <PIN pinname="Background Color" slicecount="1" values="|1.00000,1.00000,1.00000,1.00000|">
+   </PIN>
+   <PIN pinname="Layers" visible="1">
+   </PIN>
+   </NODE>
+   <NODE systemname="Constant (EX9.Effect)" filename="%VVVV%\lib\nodes\effects\Constant.fx" nodename="Constant (EX9.Effect)" componentmode="Hidden" id="73" hiddenwhenlocked="1">
+   <BOUNDS type="Node" left="1260" top="14889" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Layer" visible="1">
+   </PIN>
+   <PIN pinname="Color" slicecount="1" values="|0.00000,0.00000,0.00000,1.00000|">
+   </PIN>
+   <PIN pinname="Mesh" visible="1">
+   </PIN>
+   <PIN pinname="Render State" visible="1">
+   </PIN>
+   </NODE>
+   <NODE systemname="VertexBuffer (EX9.Geometry Join)" nodename="VertexBuffer (EX9.Geometry Join)" componentmode="Hidden" id="74" hiddenwhenlocked="1">
+   <BOUNDS type="Node" left="1981" top="13762" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Vertex Buffer" visible="1">
+   </PIN>
+   <PIN pinname="Position XYZ" visible="1">
+   </PIN>
+   </NODE>
+   <NODE systemname="Mesh (EX9.Geometry Join)" nodename="Mesh (EX9.Geometry Join)" componentmode="Hidden" id="75" hiddenwhenlocked="1">
+   <BOUNDS type="Node" left="1981" top="14168" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Vertex Buffer" visible="1">
+   </PIN>
+   <PIN pinname="Indices" visible="1">
+   </PIN>
+   <PIN pinname="Mesh" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="74" srcpinname="Vertex Buffer" dstnodeid="75" dstpinname="Vertex Buffer">
+   </LINK>
+   <LINK srcnodeid="54" srcpinname="Values A" dstnodeid="74" dstpinname="Position XYZ">
+   </LINK>
+   <LINK srcnodeid="7" srcpinname="Indices" dstnodeid="75" dstpinname="Indices" hiddenwhenlocked="1">
+   </LINK>
+   <LINK srcnodeid="75" srcpinname="Mesh" dstnodeid="73" dstpinname="Mesh">
+   </LINK>
+   <NODE systemname="Fill (EX9.RenderState)" nodename="Fill (EX9.RenderState)" componentmode="Hidden" id="76" hiddenwhenlocked="1">
+   <BOUNDS type="Node" left="1239" top="14511" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Render State Out" visible="1">
+   </PIN>
+   <PIN pinname="Fill Mode" slicecount="1" values="WireFrame">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="76" srcpinname="Render State Out" dstnodeid="73" dstpinname="Render State">
+   </LINK>
+   <NODE systemname="Group (EX9)" nodename="Group (EX9)" componentmode="Hidden" id="78" hiddenwhenlocked="1">
+   <BOUNDS type="Node" left="1260" top="15484" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Layer 1" visible="1">
+   </PIN>
+   <PIN pinname="Layer" visible="1">
+   </PIN>
+   <PIN pinname="Layer 2" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="73" srcpinname="Layer" dstnodeid="78" dstpinname="Layer 1">
+   </LINK>
+   <LINK srcnodeid="78" srcpinname="Layer" dstnodeid="72" dstpinname="Layers">
+   </LINK>
+   <NODE systemname="Segment (DX9)" nodename="Segment (DX9)" componentmode="Hidden" id="79" hiddenwhenlocked="1">
+   <BOUNDS type="Node" left="3500" top="15869" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Layer" visible="1">
+   </PIN>
+   <PIN pinname="Transform" visible="1">
+   </PIN>
+   <PIN pinname="Color" slicecount="1" visible="1" values="|1.00000,0.00000,0.00000,1.00000|">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="79" srcpinname="Layer" dstnodeid="78" dstpinname="Layer 2" hiddenwhenlocked="1">
+   </LINK>
+   <LINK srcnodeid="27" srcpinname="Transform Out" dstnodeid="79" dstpinname="Transform">
+   </LINK>
+   <NODE id="68" systemname="Zip (Value Bin)" filename="%VVVV%\lib\nodes\plugins\VVVV.Nodes.dll" nodename="Zip (Value Bin)" componentmode="Hidden" hiddenwhenlocked="1">
+   <BOUNDS type="Node" left="2632" top="11977" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Input 2 Bin Size" slicecount="1" values="3">
+   </PIN>
+   <PIN pinname="Input 1" visible="1">
+   </PIN>
+   <PIN pinname="Input 1 Bin Size" slicecount="1" values="3">
+   </PIN>
+   <PIN pinname="Input Count" slicecount="1" values="3">
+   </PIN>
+   <PIN pinname="Input 3 Bin Size" slicecount="1" values="3">
+   </PIN>
+   <PIN pinname="Input 2" visible="1">
+   </PIN>
+   <PIN pinname="Input 3" visible="1">
+   </PIN>
+   <PIN pinname="Output" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="68" srcpinname="Output" dstnodeid="54" dstpinname="Values C">
+   </LINK>
+   <LINK srcnodeid="67" srcpinname="Output 2" dstnodeid="68" dstpinname="Input 2">
+   </LINK>
+   <LINK srcnodeid="67" srcpinname="Output 1" dstnodeid="68" dstpinname="Input 1">
+   </LINK>
+   <LINK srcnodeid="56" srcpinname="Output" dstnodeid="54" dstpinname="CommonSize">
+   </LINK>
+   <NODE systemname="PerfMeter (Debug)" filename="%VVVV%\lib\nodes\modules\Debug\PerfMeter (Debug).v4p" nodename="PerfMeter (Debug)" componentmode="Hidden" id="81">
+   <BOUNDS type="Node" left="5250" top="3892" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="fps" visible="1">
+   </PIN>
+   </NODE>
+   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="82">
+   <BOUNDS type="Box" left="5509" top="4186" width="693" height="210">
+   </BOUNDS>
+   <BOUNDS type="Node" left="5509" top="4186" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Units" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Precision" slicecount="1" values="4">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="81" srcpinname="fps" dstnodeid="82" dstpinname="Y Input Value">
+   </LINK>
+   <NODE nodename="IOBox (Color)" componentmode="InABox" id="83">
+   <BOUNDS type="Box" left="4592" top="15456" width="280" height="224">
+   </BOUNDS>
+   <BOUNDS type="Node" left="4592" top="15456" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Color Input" slicecount="1" visible="1" values="|1.00000,0.00000,0.00000,1.00000|">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="83" srcpinname="Color Output" dstnodeid="79" dstpinname="Color">
+   </LINK>
+   <NODE nodename="IOBox (String)" componentmode="InABox" id="84">
+   <BOUNDS type="Node" left="245" top="973" width="4249" height="210">
+   </BOUNDS>
+   <BOUNDS type="Box" left="245" top="973" width="4417" height="476">
+   </BOUNDS>
+   <PIN pinname="Input String" visible="0" slicecount="1" values="|This is for reference only. Please see girlpower folder for examples.|">
+   </PIN>
+   <PIN pinname="Output String" visible="0">
+   </PIN>
+   <PIN pinname="Show Grid" slicecount="1" values="0">
+   </PIN>
+   <PIN pinname="String Type" slicecount="1" values="MultiLine">
+   </PIN>
+   <PIN pinname="Size" slicecount="1" values="8">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="7" srcpinname="Indices" dstnodeid="33" dstpinname="Triangle/Tetrahedron Indices" hiddenwhenlocked="1">
+   </LINK>
+   <NODE nodename="IOBox (String)" componentmode="InABox" id="85">
+   <BOUNDS type="Node" left="6769" top="8743" width="1358" height="210">
+   </BOUNDS>
+   <BOUNDS type="Box" left="6769" top="8743" width="2219" height="420">
+   </BOUNDS>
+   <PIN pinname="Input String" visible="0" slicecount="1" values="|Blend Weight Matrix|">
+   </PIN>
+   <PIN pinname="Output String" visible="0">
+   </PIN>
+   <PIN pinname="Show Grid" slicecount="1" values="0">
+   </PIN>
+   <PIN pinname="String Type" slicecount="1" values="MultiLine">
+   </PIN>
+   <PIN pinname="Size" slicecount="1" values="10">
+   </PIN>
+   </NODE>
+   <NODE nodename="IOBox (String)" componentmode="InABox" id="86">
+   <BOUNDS type="Node" left="6769" top="4039" width="1400" height="210">
+   </BOUNDS>
+   <BOUNDS type="Box" left="6769" top="4039" width="2611" height="378">
+   </BOUNDS>
+   <PIN pinname="Input String" visible="0" slicecount="1" values="|Points, Bones, Cages|">
+   </PIN>
+   <PIN pinname="Output String" visible="0">
+   </PIN>
+   <PIN pinname="Show Grid" slicecount="1" values="0">
+   </PIN>
+   <PIN pinname="String Type" slicecount="1" values="MultiLine">
+   </PIN>
+   <PIN pinname="Size" slicecount="1" values="10">
+   </PIN>
+   </NODE>
+   <NODE nodename="IOBox (String)" componentmode="InABox" id="87">
+   <BOUNDS type="Node" left="6769" top="385" width="819" height="210">
+   </BOUNDS>
+   <BOUNDS type="Box" left="6769" top="385" width="2002" height="455">
+   </BOUNDS>
+   <PIN pinname="Input String" visible="0" slicecount="1" values="|Input Mesh|">
+   </PIN>
+   <PIN pinname="Output String" visible="0">
+   </PIN>
+   <PIN pinname="Show Grid" slicecount="1" values="0">
+   </PIN>
+   <PIN pinname="String Type" slicecount="1" values="MultiLine">
+   </PIN>
+   <PIN pinname="Size" slicecount="1" values="10">
+   </PIN>
+   </NODE>
+   <NODE nodename="IOBox (String)" componentmode="InABox" id="88">
+   <BOUNDS type="Node" left="6769" top="4417" width="7189" height="210">
+   </BOUNDS>
+   <BOUNDS type="Box" left="6769" top="4417" width="5663" height="4151">
+   </BOUNDS>
+   <PIN pinname="Input String" visible="0" slicecount="1" values="|- Control handle locations are specified via the &quot;Controls XYZ&quot; pin. &cr;&lf;&cr;&lf;- &quot;Point Handle Indices&quot; point directly into the &quot;Controls XYZ&quot; spread&cr;&lf;&cr;&lf;- &quot;Bone Edge Indices&quot; are pairs of indices pointing into the &quot;Controls XYZ&quot; spread.&cr;&lf;&cr;&lf;- Cage edges are just special point handles, which transform the mesh linearly along straight lines between cage corner points. Therefore you need to first specify each cage corner point as a point handle. &quot;Cage Edge Indices&quot; are pairs of indices pointing into all specified point handles(!), starting with 0.&cr;&lf;&cr;&lf;- Cages can be of arbitrary topology.&cr;&lf;&cr;&lf;- It is possible to mix points, bones and cages in a mesh; just make sure to get the indices right, especially for cages.&cr;&lf;&cr;&lf;- One transform per point and cage corner point, one transform per bone(=2points)!&cr;&lf;&cr;&lf;- All control handles can not only be translated, but scaled and rotated as well!|">
+   </PIN>
+   <PIN pinname="Output String" visible="0">
+   </PIN>
+   <PIN pinname="Show Grid" slicecount="1" values="0">
+   </PIN>
+   <PIN pinname="String Type" slicecount="1" values="MultiLine">
+   </PIN>
+   <PIN pinname="Size" slicecount="1" values="8">
+   </PIN>
+   </NODE>
+   <NODE nodename="IOBox (String)" componentmode="InABox" id="89">
+   <BOUNDS type="Node" left="3402" top="10934" width="2100" height="210">
+   </BOUNDS>
+   <BOUNDS type="Box" left="3402" top="10934" width="1337" height="343">
+   </BOUNDS>
+   <PIN pinname="Input String" visible="0" slicecount="1" values="|make 3x3 matrix|">
+   </PIN>
+   <PIN pinname="Output String" visible="0">
+   </PIN>
+   <PIN pinname="Show Grid" slicecount="1" values="0">
+   </PIN>
+   <PIN pinname="String Type" slicecount="1" values="MultiLine">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="67" srcpinname="Output 4" dstnodeid="68" dstpinname="Input 3">
+   </LINK>
+   <NODE nodename="IOBox (String)" componentmode="InABox" id="90">
+   <BOUNDS type="Node" left="4291" top="11312" width="1414" height="210">
+   </BOUNDS>
+   <BOUNDS type="Box" left="4291" top="11312" width="4704" height="3640">
+   </BOUNDS>
+   <PIN pinname="Input String" visible="0" slicecount="1" values="|CPU VERSION (SLOW)&cr;&lf;In the girlpower folder you will find a shader doing this multiplication; this however provides a good way to debug your blend weights/transforms.&cr;&lf;&cr;&lf;Math explanation:&cr;&lf;Each row in the blend weight matrix corresponds to one vertex in the input mesh. Each of that rows holds information, ie scalars, on how each control handle affects this vertex. As we will be multiplying this matrix with either 3x3 matrices (in 2D) or 3x4 matrices (in 3D), the blend weight matrix&apos;s row size is either number of bones * 3 or number of bones * 4, or in other words, there are either 3 or 4 blend weights per control handle (per input vertex).&cr;&lf;Now, for every vertex in our input mesh we multiply our per control handle blend weights with their corresponding control handle&apos;s transform, then sum up all of these (per component x, y and z) to retrieve the final vertex location. This is equivalent to first applying the transforms of the first control handle, then of the second, etc. in order to step by step reach the right location. Notice that the original input vertices are not used to create the final mesh, meaning the blend weights matrix holds all the vertex information in its entries, but defined via control handles and their &quot;point of views&quot;.|">
+   </PIN>
+   <PIN pinname="Output String" visible="0">
+   </PIN>
+   <PIN pinname="Show Grid" slicecount="1" values="0">
+   </PIN>
+   <PIN pinname="String Type" slicecount="1" values="MultiLine">
+   </PIN>
+   </NODE>
+   <NODE systemname="Add (Value Spectral)" nodename="Add (Value Spectral)" componentmode="Hidden" id="91" hiddenwhenlocked="1">
+   <BOUNDS type="Node" left="1211" top="6853" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Input" visible="1">
+   </PIN>
+   <PIN pinname="Output" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="33" srcpinname="Blend Weight Matrix" dstnodeid="91" dstpinname="Input" hiddenwhenlocked="1">
+   </LINK>
+   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="92" hiddenwhenlocked="1">
+   <BOUNDS type="Box" left="1204" top="7175" width="693" height="210">
+   </BOUNDS>
+   <BOUNDS type="Node" left="1204" top="7175" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Units" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Precision" slicecount="1" values="4">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="91" srcpinname="Output" dstnodeid="92" dstpinname="Y Input Value">
+   </LINK>
+   <NODE systemname="Count (3d)" filename="%VVVV%\lib\nodes\modules\3D\Count (3D).v4p" nodename="Count (3d)" componentmode="Hidden" id="93" hiddenwhenlocked="1">
+   <BOUNDS type="Node" left="371" top="6818" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Input" visible="1">
+   </PIN>
+   <PIN pinname="Count" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="51" srcpinname="XYZ Transformed" dstnodeid="93" dstpinname="Input" hiddenwhenlocked="1">
+   </LINK>
+   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="94" hiddenwhenlocked="1">
+   <BOUNDS type="Box" left="385" top="7189" width="693" height="210">
+   </BOUNDS>
+   <BOUNDS type="Node" left="385" top="7189" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Units" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Precision" slicecount="1" values="4">
+   </PIN>
+   <PIN pinname="Value Type" slicecount="1" values="Integer">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="93" srcpinname="Count" dstnodeid="94" dstpinname="Y Input Value">
+   </LINK>
+   <NODE nodename="IOBox (String)" componentmode="InABox" id="95">
+   <BOUNDS type="Node" left="259" top="7462" width="4207" height="210">
+   </BOUNDS>
+   <BOUNDS type="Box" left="259" top="7462" width="2695" height="1085">
+   </BOUNDS>
+   <PIN pinname="Input String" visible="0" slicecount="1" values="|A quick check to see if the blend weights make sense is the sum of all matrix entries: if this is close (+-1% usually) to the number of input vertices you should be fine!|">
+   </PIN>
+   <PIN pinname="Output String" visible="0">
+   </PIN>
+   <PIN pinname="Show Grid" slicecount="1" values="0">
+   </PIN>
+   <PIN pinname="String Type" slicecount="1" values="MultiLine">
+   </PIN>
+   </NODE>
+   <NODE nodename="IOBox (String)" componentmode="InABox" id="96">
+   <BOUNDS type="Node" left="2282" top="1708" width="3234" height="210">
+   </BOUNDS>
+   <BOUNDS type="Box" left="2282" top="1708" width="3220" height="371">
+   </BOUNDS>
+   <PIN pinname="Input String" visible="0" slicecount="1" values="|Example file taken from the original libigl research|">
+   </PIN>
+   <PIN pinname="Output String" visible="0">
+   </PIN>
+   <PIN pinname="Show Grid" slicecount="1" values="0">
+   </PIN>
+   <PIN pinname="String Type" slicecount="1" values="MultiLine">
+   </PIN>
+   </NODE>
+   </PATCH>
