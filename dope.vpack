@@ -6,7 +6,7 @@
     <dependencies>
 	<dependency>
       <name>dx11-vvvv</name>
-        <source>https://github.com/vvvvpm/vpdb/blob/master/vux/dx11-vvvv/github.master.vpack</source>
+        <source>https://github.com/vvvvpm/vpdb/blob/master/vux/dx11-vvvv/github.master.csx</source>
         <aliases>dx11, vvvv-dx11</aliases>
       </dependency>
     </dependencies>
