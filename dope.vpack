@@ -1,0 +1,21 @@
+<vpack>
+  <meta>
+    <name>d.o.p.e</name>
+    <source>https://github.com/digitalwannabe/d.o.p.e..git</source>
+    <author>digitalWannabe</author>
+    <dependencies>
+	<dependency>
+      <name>dx11-vvvv</name>
+        <source>https://raw.githubusercontent.com/vvvvpm/vpdb/vux/dx11-vvvv/github.master.csx</source>
+        <aliases>dx11, vvvv-dx11</aliases>
+      </dependency>
+    </dependencies>
+  </meta>
+  <install>
+    CopyDir(
+        Pack.TempDir,
+        VVVV.Dir + "\packs\" + Pack.Name,
+        ignore: new string[] {"src", ".git*"}
+    );
+  </install>
+</vpack>

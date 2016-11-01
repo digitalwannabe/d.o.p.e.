@@ -11,9 +11,6 @@ SamplerState linearSampler: IMMUTABLE
     AddressV = Wrap;
 };
 
-
-
-//int Vertices <string uiname="Vertices";>;
 int Bones <string uiname="Handles";> =1;
 bool is3D <string uiname="2D/3D";>;
 
@@ -31,8 +28,7 @@ vs2gs VS(
 	float3 PosO: POSITION,
 	float3 Normal: NORMAL,
 	float2 UV: TEXCOORD0,
-	uint InstanceID: SV_VertexID,
-	uint GeometryID: SV_InstanceID)
+	uint InstanceID: SV_VertexID)
 {
 	vs2gs Out;
 	
