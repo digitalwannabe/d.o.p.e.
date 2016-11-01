@@ -13,9 +13,8 @@
   </meta>
   <install>
     CopyDir(
-        Pack.TempDir,
-        VVVV.Dir + "\packs\" + Pack.Name,
-        ignore: new string[] {"src", ".git*"}
-    );
+    Pack.TempDir,
+    VVVV.Dir + "\\packs\\"  + Pack.Name
+	);
   </install>
 </vpack>
