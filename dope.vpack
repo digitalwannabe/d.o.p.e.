@@ -13,8 +13,8 @@
   </meta>
   <install>
     CopyDir(
-        Pack.TempDir,
-        VVVV.Dir + "\packs\" + Pack.Name
-    );
+    Pack.TempDir,
+    VVVV.Dir + "\\packs\\"  + Pack.Name
+	);
   </install>
 </vpack>
