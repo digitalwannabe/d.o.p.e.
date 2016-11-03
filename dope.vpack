@@ -15,7 +15,11 @@
     CopyDir(
     Pack.TempDir,
     VVVV.Dir + "\\packs\\"  + Pack.Name,
+<<<<<<< HEAD
     ignore: new string[] {"src", ".git*"}	
+=======
+    ignore: new string[] {"src", ".git*"}
+>>>>>>> bc532e7ac02827c42a6602a7a8c75bd40ff53a57
 	);
   </install>
 </vpack>
