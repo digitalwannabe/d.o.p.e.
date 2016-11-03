@@ -6,7 +6,7 @@
     <dependencies>
 	<dependency>
       <name>dx11-vvvv</name>
-        <source>https://raw.githubusercontent.com/vvvvpm/vpdb/vux/dx11-vvvv/github.master.csx</source>
+        <source>https://github.com/vvvvpm/vpdb/blob/master/vux/dx11-vvvv/github.master.vpack</source>
         <aliases>dx11, vvvv-dx11</aliases>
       </dependency>
     </dependencies>
@@ -14,7 +14,8 @@
   <install>
     CopyDir(
     Pack.TempDir,
-    VVVV.Dir + "\\packs\\"  + Pack.Name
+    VVVV.Dir + "\\packs\\"  + Pack.Name,
+    ignore: new string[] {"src", ".git*"}	
 	);
   </install>
 </vpack>

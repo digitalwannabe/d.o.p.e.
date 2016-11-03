@@ -1,6 +1,6 @@
 <!DOCTYPE PATCH  SYSTEM "https://vvvv.org/versions/vvvv50alpha34.106.dtd" >
    <PATCH nodename="X:\_dev\dope\girlpower\3D\06_Partial Cages.v4p" scrollx="0" scrolly="-360" systemname="06_Partial Cages" filename="X:\_dev\dope\girlpower\3D\06_Partial Cages.v4p">
-   <BOUNDS type="Window" left="7476" top="1400" width="17451" height="12866">
+   <BOUNDS type="Window" left="9002" top="1603" width="17451" height="12866">
    </BOUNDS>
    <NODE systemname="Renderer (DX11)" filename="%VVVV%\packs\dx11\nodes\plugins\VVVV.DX11.Nodes.dll" nodename="Renderer (DX11)" componentmode="InAWindow" id="1">
    <BOUNDS type="Node" left="4907" top="15428" width="100" height="100">
@@ -1356,8 +1356,8 @@
    </NODE>
    <LINK srcnodeid="141" srcpinname="Y Output Value" dstnodeid="142" dstpinname="Index">
    </LINK>
-   <LINK srcnodeid="28" srcpinname="Output XYZ" dstnodeid="142" dstpinname="Input">
-   </LINK>
    <LINK srcnodeid="142" srcpinname="Output" dstnodeid="60" dstpinname="Controls XYZ">
+   </LINK>
+   <LINK srcnodeid="23" srcpinname="PositionXYZ" dstnodeid="142" dstpinname="Input">
    </LINK>
    </PATCH>
