@@ -207,11 +207,13 @@
 </PIN><PIN name="Iterastion Count" direction="Input" subtype="Integer" slicemode="UpStream" visibility="OnlyInspector">
 </PIN><PIN name="Enabled" direction="Input" subtype="Boolean" slicemode="UpStream" visibility="True">
 </PIN><PIN name="Defines" direction="Input" subtype="String" slicemode="UpStream" visibility="OnlyInspector">
-</PIN><PIN name="Technique" direction="Input" subtype="1334edd4-20d7-4ad5-878f-cd0eb1ccdaf1" slicemode="UpStream" visibility="True">
+</PIN><PIN name="Technique" direction="Input" subtype="eeae5d59-ba9d-438c-a675-38939389703d" slicemode="UpStream" visibility="True">
 </PIN><PIN name="Handles" direction="Input" subtype="Integer" slicemode="UpStream" visibility="True">
 </PIN><PIN name="2D/3D" direction="Input" subtype="Boolean" slicemode="UpStream" visibility="True">
+</PIN><PIN name="Use Instance Transform" direction="Input" subtype="Boolean" slicemode="UpStream" visibility="True">
 </PIN><PIN name="Blend Weights Matrix" direction="Input" subtype="DX11Resource&lt;FeralTic.DX11.Resources.IDX11ReadableStructureBuffer&gt;" slicemode="UpStream" visibility="True">
 </PIN><PIN name="Handle Transform" direction="Input" subtype="DX11Resource&lt;FeralTic.DX11.Resources.IDX11ReadableStructureBuffer&gt;" slicemode="UpStream" visibility="True">
+</PIN><PIN name="Instance Transform" direction="Input" subtype="DX11Resource&lt;FeralTic.DX11.Resources.IDX11ReadableStructureBuffer&gt;" slicemode="UpStream" visibility="True">
 </PIN><PIN name="ID" direction="Output" subtype="Integer" slicemode="Single" visibility="OnlyInspector">
 </PIN><PIN name="Window Handle" direction="Output" subtype="Integer" slicemode="Single" visibility="False">
 </PIN><PIN name="Geometry Out" direction="Output" subtype="DX11Resource&lt;FeralTic.DX11.Resources.IDX11Geometry&gt;" slicemode="Manual" visibility="True">
@@ -219,6 +221,7 @@
 </PIN><PIN name="Technique Valid" direction="Output" subtype="Boolean" slicemode="Manual" visibility="True">
 </PIN><PIN name="Compiled" direction="Output" subtype="Boolean" slicemode="Manual" visibility="True">
 </PIN><PIN name="Query" direction="Output" subtype="IDX11Queryable" slicemode="Single" visibility="True">
+</PIN><PIN name="Shader Path" direction="Output" subtype="String" slicemode="Manual" visibility="OnlyInspector">
 </PIN><TODO>Help patch "LinearBlendSkinning (DX11.GeomFX) help.v4p" not found
 </TODO>
 </NODE>

@@ -1,5 +1,5 @@
-<!DOCTYPE PATCH  SYSTEM "https://vvvv.org/versions/vvvv50alpha34.106.dtd" >
-   <PATCH nodename="X:\_dev\dope\girlpower\3D\06_Partial Cages.v4p" scrollx="0" scrolly="-360" systemname="06_Partial Cages" filename="X:\_dev\dope\girlpower\3D\06_Partial Cages.v4p">
+<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv50alpha34.106.dtd" >
+   <PATCH nodename="C:\Users\digital.wannabe\Desktop\vvvv_50alpha34.106_x64\packs\dope\girlpower\3D\06_Partial Cages.v4p" scrollx="0" scrolly="-360" systemname="06_Partial Cages" filename="C:\Users\digital.wannabe\Desktop\vvvv_50alpha34.106_x64\packs\dope\girlpower\3D\06_Partial Cages.v4p">
    <BOUNDS type="Window" left="9002" top="1603" width="17451" height="12866">
    </BOUNDS>
    <NODE systemname="Renderer (DX11)" filename="%VVVV%\packs\dx11\nodes\plugins\VVVV.DX11.Nodes.dll" nodename="Renderer (DX11)" componentmode="InAWindow" id="1">
@@ -42,7 +42,7 @@
    </NODE>
    <LINK srcnodeid="3" srcpinname="Render State" dstnodeid="2" dstpinname="Render State">
    </LINK>
-   <NODE systemname="Camera (Transform Softimage)" filename="%VVVV%\lib\packs\VL.EditingFramework.0.40.17-g155b99368a\vvvv\nodes\modules\Camera (Transform Softimage).v4p" nodename="Camera (Transform Softimage)" componentmode="Hidden" id="4">
+   <NODE systemname="Camera (Transform Softimage)" filename="%VVVV%\lib\packs\VL.EditingFramework.0.38.1311-ga7af92e2a2\vvvv\nodes\modules\Camera (Transform Softimage).v4p" nodename="Camera (Transform Softimage)" componentmode="Hidden" id="4">
    <BOUNDS type="Node" left="6083" top="14952" width="100" height="100">
    </BOUNDS>
    <PIN pinname="View" visible="1">
@@ -471,9 +471,9 @@
    </PIN>
    </NODE>
    <NODE systemname="IOBox (Value Advanced)" nodename="IOBox (Value Advanced)" componentmode="InABox" id="74">
-   <BOUNDS type="Node" left="8400" top="6426" width="100" height="100">
+   <BOUNDS type="Node" left="8232" top="6601" width="100" height="100">
    </BOUNDS>
-   <BOUNDS type="Box" left="8400" top="6426" width="693" height="210">
+   <BOUNDS type="Box" left="8232" top="6601" width="693" height="210">
    </BOUNDS>
    <PIN pinname="Value Type" slicecount="1" values="Integer">
    </PIN>
@@ -839,9 +839,9 @@
    </PIN>
    </NODE>
    <NODE nodename="IOBox (String)" componentmode="InABox" id="106" systemname="IOBox (String)">
-   <BOUNDS type="Node" left="8617" top="5488" width="1001" height="210">
+   <BOUNDS type="Node" left="10703" top="2058" width="1001" height="210">
    </BOUNDS>
-   <BOUNDS type="Box" left="8617" top="5488" width="1246" height="224">
+   <BOUNDS type="Box" left="10703" top="2058" width="1246" height="224">
    </BOUNDS>
    <PIN pinname="Input String" visible="0" slicecount="1" values="|Control Points|">
    </PIN>
@@ -1327,7 +1327,7 @@
    </PIN>
    </NODE>
    <NODE systemname="GetSlice (Spreads)" nodename="GetSlice (Spreads)" componentmode="Hidden" id="142">
-   <BOUNDS type="Node" left="7196" top="6356" width="100" height="100">
+   <BOUNDS type="Node" left="9282" top="2926" width="100" height="100">
    </BOUNDS>
    <PIN pinname="Bin Size" slicecount="1" values="3">
    </PIN>
@@ -1339,9 +1339,9 @@
    </PIN>
    </NODE>
    <NODE systemname="IOBox (Value Advanced)" nodename="IOBox (Value Advanced)" componentmode="InABox" id="141">
-   <BOUNDS type="Node" left="7924" top="5068" width="100" height="100">
+   <BOUNDS type="Node" left="10010" top="1638" width="100" height="100">
    </BOUNDS>
-   <BOUNDS type="Box" left="7924" top="5068" width="665" height="1211">
+   <BOUNDS type="Box" left="10010" top="1638" width="665" height="1211">
    </BOUNDS>
    <PIN pinname="Pages" slicecount="1" values="1">
    </PIN>

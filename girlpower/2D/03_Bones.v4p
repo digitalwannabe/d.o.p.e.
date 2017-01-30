@@ -1,5 +1,5 @@
-<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv50alpha34.106.dtd" >
-   <PATCH nodename="C:\Users\digital.wannabe\Desktop\vvvv_50alpha34.106_x86\packs\dope\girlpower\2D\03_Bones.v4p" scrollx="0" scrolly="-360" systemname="03_Bones" filename="C:\Users\digital.wannabe\Desktop\vvvv_50alpha34.106_x86\packs\dope\girlpower\2D\03_Bones.v4p">
+<!DOCTYPE PATCH  SYSTEM "https://vvvv.org/versions/vvvv50alpha34.106.dtd" >
+   <PATCH nodename="C:\Users\digital.wannabe\Desktop\vvvv_50alpha34.106_x64\packs\dope\girlpower\2D\03_Bones.v4p" scrollx="0" scrolly="1698" systemname="03_Bones" filename="C:\Users\digital.wannabe\Desktop\vvvv_50alpha34.106_x86\packs\dope\girlpower\2D\03_Bones.v4p">
    <BOUNDS type="Window" left="9282" top="140" width="12593" height="14637">
    </BOUNDS>
    <NODE systemname="IndexedGeometryBufferTriangleList" filename="%VVVV%\packs\dope\nodes\modules\IndexedGeometryBufferTriangleList.v4p" nodename="%VVVV%\packs\dope\nodes\modules\IndexedGeometryBufferTriangleList.v4p" componentmode="Hidden" id="0">
@@ -83,8 +83,6 @@
    </PIN>
    </NODE>
    <LINK srcnodeid="5" srcpinname="Output XY" dstnodeid="7" dstpinname="XY">
-   </LINK>
-   <LINK srcnodeid="7" srcpinname="XYZ" dstnodeid="0" dstpinname="Input XYZ">
    </LINK>
    <NODE systemname="Constant (DX11.Effect)" filename="%VVVV%\packs\dx11\nodes\dx11\Constant.fx" nodename="Constant (DX11.Effect)" componentmode="Hidden" id="8">
    <BOUNDS type="Node" left="2702" top="14273" width="100" height="100">
@@ -1028,4 +1026,26 @@
    <PIN pinname="Size" slicecount="1" values="8">
    </PIN>
    </NODE>
+   <NODE systemname="Count (Value)" nodename="Count (Value)" componentmode="Hidden" id="82">
+   <BOUNDS type="Node" left="1897" top="7238" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Input" visible="1">
+   </PIN>
+   <PIN pinname="Count" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="7" srcpinname="XYZ" dstnodeid="82" dstpinname="Input">
+   </LINK>
+   <NODE systemname="Select (Value)" filename="%VVVV%\lib\nodes\plugins\VVVV.Nodes.dll" nodename="Select (Value)" componentmode="Hidden" id="83">
+   <BOUNDS type="Node" left="1561" top="7791" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Select" visible="1">
+   </PIN>
+   <PIN pinname="Output" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="82" srcpinname="Count" dstnodeid="83" dstpinname="Select">
+   </LINK>
+   <LINK srcnodeid="83" srcpinname="Output" dstnodeid="0" dstpinname="Input XYZ">
+   </LINK>
    </PATCH>
